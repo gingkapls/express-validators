@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
-const indexRouter = require("./routes/indexRouter.js");
+const indexRouter = require("./routes/indexRouter");
+const userRouter = require("./routes/userRouter");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 8080;
@@ -13,6 +14,7 @@ const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/user", userRouter);
 app.use("/", indexRouter);
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
