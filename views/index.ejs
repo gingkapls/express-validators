@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <% if (locals.users) { %>
+      <% users.forEach(user => { %>
+        <li>Name: <%= user.fname + ' ' + user.lname %></li>
+      <% }) %>
+    <% } %>
+  </body>
+</html>
