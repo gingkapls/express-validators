@@ -1,13 +1,14 @@
 <html>
   <head>
     <link rel="stylesheet" href="/styles.css" />
+    <title><%= title %></title>
   </head>
   <body>
-    <h1><%= title %></h1>
     <% if (locals.users) { %>
       <% users.forEach(user => { %>
         <li>Name: <%= user.fname + ' ' + user.lname %></li>
       <% }) %>
     <% } %>
+    <a href="/user/create">Create a user</a>
   </body>
 </html>
