@@ -6,14 +6,29 @@
     <form action="/user/create" method="POST">
       <label>
         First Name:
-        <input type="text" name="fname" minlength="1" maxlength="10" required />
+        <input type="text" name="fname" minlength="1" maxlength="10" required value="<%= locals?.user?.fname %>" />
       </label>
       <label>
         Last Name:
-        <input type="text" name="lname" minlength="1" maxlength="10" required />
+        <input type="text" name="lname" minlength="1" maxlength="10" required value="<% locals?.user?.fname %>"/>
+      </label>
+      <label>
+        Email:
+        <input type="email" name="email" required value="<% locals?.user?.email %>"/>
+      </label>
+      <label>
+        Age:
+        <input type="number" name="age" minlength="1" maxlength="3" required value="<% locals?.user?.age %>"/>
+      </label>
+      <label>
+        Bio:
+        <textarea name="bio" minlength="1" maxlength="200" placeholder="I like trains" value="<% locals?.user?.bio %>"></textarea>
       </label>
       <button type="submit">Submit</button>
     </form>
+    <% if (locals.errors) { %>
+        <%- include("partials/errors.ejs") %>
+    <% } %>
     <a href="/">Go home</a>
   </body>
 </html>
