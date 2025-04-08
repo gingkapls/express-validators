@@ -1,0 +1,11 @@
+<%- include('partials/searchbox.ejs') %>
+
+<% if (locals.results) { %>
+    <%- include('partials/searchresults.ejs', {results}) %>
+<% } %>
+
+<% if (locals.errors) { %>
+    <%- include('partials/errors.ejs', { errors }) %>
+<% } %>
+
+<a href="/">Go home</a>

@@ -7,17 +7,13 @@
     <% if (locals.users) { %>
     <table>
       <tbody>
-        <% users.forEach(user => { %>
-        <tr>
-          <th>Name: <%= user.fname + ' ' + user.lname %></th>
-          <td>Email: <%= user.email %></td>
-          <td>Age: <%= user.age %></td>
-          <td>Bio: <%= user.bio %></td>
-        </tr>
-        <% }) %>
+        <% users.forEach(user => { %> <%- include('partials/user.ejs', { user })
+        %> <% }) %>
       </tbody>
     </table>
     <% } %>
     <a href="/user/create">Create a user</a>
+    <a href="/search">Search users</a>
+    <%- include('partials/searchbox.ejs') %>
   </body>
 </html>

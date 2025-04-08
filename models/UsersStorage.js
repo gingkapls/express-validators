@@ -10,9 +10,18 @@ class UsersStorage {
     this.id += 1;
   }
 
-  async getUser({ id }) {
+  async getUserById({ id }) {
     return this.storage[id];
   }
+
+  async getUsersByName({ name }) {
+    const allUsers = await this.getUsers();
+    console.log(allUsers);
+
+    return allUsers.filter((user) => {
+      return user.fname.includes(name) || user.lname.includes(name);
+    });
+}
 
   async getUsers() {
     return Object.values(this.storage);
@@ -29,4 +38,7 @@ class UsersStorage {
   }
 }
 
-module.exports = new UsersStorage();
+let storage = new UsersStorage();
+storage.addUser({fname: "gin", lname: "kun", email: "gin@gin.com", age: 15, bio: ""});
+
+module.exports = storage;

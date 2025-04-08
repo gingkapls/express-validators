@@ -1,0 +1,8 @@
+<tr>
+  <th>Name: <%= user.fname + ' ' + user.lname %></th>
+  <td>Email: <%= user.email %></td>
+  <td>Age: <%= user.age %></td>
+  <% if (user.bio.length !=0) { %>
+  <td>Bio: <%= user.bio %></td>
+  <% } %>
+</tr>
